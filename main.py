@@ -1,6 +1,7 @@
 import pygame
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from logger import log_state
+from player import Player
 
 # to run: uv run main.py in terminal
 
@@ -14,6 +15,8 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
     running = True
     while running:
         log_state()
@@ -23,6 +26,7 @@ def main():
                 return
 
         screen.fill("black")
+        player.draw(screen)
         pygame.display.flip()
 
         clock.tick(60)
